@@ -1,0 +1,34 @@
+<section class="ui grid">
+  <article class="four wide column">
+      <article class="ui card">
+          <div class="image">
+            <img [src]="userImage" alt="{{ username }}">
+          </div>
+          <div class="content">
+            <h3 class="header">{{ username }}</h3>
+            <div class="description">
+              <a [href]="website" target="_blank">Website</a>
+            </div>
+          </div>
+          <div class="extra content">
+              <i class="github icon"></i>
+            {{ numberOfRepos }} <i class="user circle outline icon"></i> {{ followers }}
+            <button class="ui mini secondary basic active button" (click)="followUser(username)">
+                <i class="user icon"></i>
+                Follow
+              </button>
+          </div>
+        </article>
+  </article>
+  <article class="four wide column">
+    <div class="ui relaxed divided list">
+      <div class="item" *ngFor="let repo of repos">
+          <i class="large github middle aligned icon"></i>
+          <div class="content">
+            <a [href]="repo.html_url" class="header" target="_blank">{{ repo.name }}</a>
+            <div class="description">Created {{ repo.created_at | date }}</div>
+          </div>
+      </div>
+    </div>
+  </article>
+</section>

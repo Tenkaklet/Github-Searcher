@@ -1,0 +1,13 @@
+<h1 class="ui heading">Users</h1>
+
+
+
+<section class="ui list">
+  <article class="item" *ngFor="let user of searchedUser">
+    <img class="ui avatar image" [src]="user.avatar_url" [alt]="user.login">
+    <div class="content">
+      <a (click)="goToUser(user.login)" class="header">{{ user.login }}</a>
+      <div class="description">Score is: <strong>{{ user.score }}</strong> of GitHub activity</div>
+    </div>
+  </article>
+</section>

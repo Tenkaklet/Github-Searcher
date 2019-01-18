@@ -1,0 +1,9 @@
+<section class="ui raised very padded container text segment">
+    <h2 class="ui header">Search the User</h2>
+    <form class="ui form" (ngSubmit)="searchUser()">
+      <div class="field">
+        <input type="text" id="user" name="user" [(ngModel)]="github_user" placeholder="The User">
+      </div>
+      <button class="ui button green fluid" type="submit" [disabled]="!github_user">Search</button>
+    </form>
+  </section>

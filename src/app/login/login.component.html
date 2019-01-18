@@ -1,0 +1,13 @@
+<section class="ui raised very padded container text segment">
+    <form class="ui form" (ngSubmit)="login()">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" [(ngModel)]="email" placeholder="Your Email">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Your Password">
+      </div>
+      <button class="ui button black" type="submit" [disabled]="!email || !password">Login</button>
+    </form>
+  </section>
