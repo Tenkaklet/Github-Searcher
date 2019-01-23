@@ -13,7 +13,7 @@
           <div class="extra content">
               <i class="github icon"></i>
             {{ numberOfRepos }} <i class="user circle outline icon"></i> {{ followers }}
-            <button class="ui mini secondary basic active button" (click)="followUser(username)">
+            <button class="ui mini secondary basic active button" (click)="followUser(username)" [disabled]="fireUser === null">
                 <i class="user icon"></i>
                 Follow
               </button>
@@ -32,3 +32,5 @@
     </div>
   </article>
 </section>
+
+<notifier-container></notifier-container>

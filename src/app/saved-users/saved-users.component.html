@@ -1,1 +1,22 @@
 <h1 class="ui heading">Following Users</h1>
+<div class="ui link cards">
+  <div class="card" *ngFor="let user of users | async">
+    <div class="image">
+      <img [src]="user.image">
+    </div>
+    <div class="content">
+      <div class="header">{{ user.username }}</div>
+      <div class="meta">
+        <a [href]="user.website" target="_blank">Website</a>
+      </div>
+      <div class="description">
+        {{ user.key }}
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <button (click)="unFollow(user.key)" class="ui basic red button">Unfollow</button>
+      </div>
+    </div>
+  </div>
+</div>

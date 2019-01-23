@@ -17,6 +17,7 @@ import { AuthService } from './auth.service';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { NotifierModule } from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
     AngularFireAuthModule,
     FormsModule,
     HttpClientModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NotifierModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

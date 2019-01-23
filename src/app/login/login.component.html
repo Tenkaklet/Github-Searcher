@@ -1,13 +1,14 @@
 <section class="ui raised very padded container text segment">
-    <form class="ui form" (ngSubmit)="login()">
+    <form class="ui form" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
       <div class="field">
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" [(ngModel)]="email" placeholder="Your Email">
+        <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Your Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
       </div>
       <div class="field">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Your Password">
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Your Password" required>
       </div>
       <button class="ui button black" type="submit" [disabled]="!email || !password">Login</button>
+      <p class="center" *ngIf="invalidForm">Either the email isn't in use or your password doesn't match</p>
     </form>
   </section>

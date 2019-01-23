@@ -18,20 +18,18 @@ export class AuthService {
   signUp(email: string, password: string) {
     this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-      console.log('success ', value);
+      return value;
     })
     .catch(err => {
-      console.log('wrong ', err);
+      return err;
     });
   }
 
   login(email: string, password: string) {
     this.fireAuth.auth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      console.log('it worked! ', value);
     })
     .catch(err => {
-      console.log('error ' , err);
     });
   }
 

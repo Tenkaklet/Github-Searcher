@@ -1,13 +1,14 @@
 <section class="ui raised very padded container text segment">
-  <form class="ui form" (ngSubmit)="register()">
+  <form class="ui form" (ngSubmit)="register(registerForm)" #registerForm="ngForm">
     <div class="field">
       <label for="email">Email</label>
-      <input type="text" id="email" name="email" [(ngModel)]="email" placeholder="Your Email">
+      <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Your Email" #theEmail required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
     </div>
     <div class="field">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Your Password">
+      <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Your Password" required>
     </div>
-    <button class="ui button black" type="submit" [disabled]="!email || !password">Register</button>
+    <button class="ui button black" type="submit" [disabled]="!email || !password || password.length < 6">Register</button>
+    <p class="center" *ngIf="invalidForm">The Email isn't formatted correctly. Or the password needs to be at least 6 characters</p>
   </form>
 </section>

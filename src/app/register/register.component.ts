@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   email: string;
   password: string;
+  invalidForm: boolean;
   constructor(public auth: AuthService, public router: Router) {
 
 
@@ -18,7 +20,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register () {
+  register (form: NgForm) {
+    if (form.invalid) {
+      this.invalidForm = true;
+      return;
+
+    }
     this.auth.signUp(this.email, this.password);
     this.email = '';
     this.password = '';

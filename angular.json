@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/semantic-ui/dist/semantic.min.css"
+              "node_modules/semantic-ui/dist/semantic.min.css",
+              "node_modules/angular-notifier/styles.css"
             ],
             "scripts": []
           },

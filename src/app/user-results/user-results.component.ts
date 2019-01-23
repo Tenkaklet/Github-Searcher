@@ -14,11 +14,10 @@ export class UserResultsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(param => {
       // NOTE: param.user
-      const user = param.user;
-      this.gHttp.getUsers(user)
-      .subscribe(user => {
+      const theUser = param.user;
+      this.gHttp.getUsers(theUser)
+      .subscribe((user: any) => {
         this.searchedUser = user.items;
-        console.log(this.searchedUser);
       });
     });
   }
